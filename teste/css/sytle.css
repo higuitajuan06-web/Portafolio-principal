@@ -1,0 +1,238 @@
+/* 1. Reset de márgenes y bordes para una página limpia */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 2. Estilo del cuerpo (Fondo oscuro y tipografía) */
+body {
+    /* Color de fondo oscuro basado en la imagen */
+    background-color: #1a2230; 
+    border: 1px solid #000000;
+    /* Fuente moderna y minimalista (Sans-serif) */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    
+    /* Color de texto principal (blanco suave) */
+    color: #ffffff;
+    
+    /* Suavizado de fuentes para que se vea más profesional */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+    font-size: large;
+}
+
+
+
+/* ===== BASE ===== */
+.bg-main {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  font-family: "Poppins", system-ui, sans-serif;
+  margin: 0;
+}
+
+/* ===== HERO ===== */
+.hero {
+  padding: 60px 0 20px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: -1px;
+}
+
+.hero-title span {
+  color: #6366f1;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #cbd5e1;
+}
+
+/* ===== FORM SECTION ===== */
+.form-section {
+  min-height: calc(100vh - 160px);
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 40px 35px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== FORM ===== */
+.form .title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #f8fafc;
+  text-align: center;
+}
+
+.form .message {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.form .input {
+  width: 100%;
+  padding: 14px 12px;
+  background: transparent;
+  border: 1px solid #475569;
+  border-radius: 10px;
+  color: #f8fafc;
+  outline: none;
+}
+
+.form .input:focus {
+  border-color: #6366f1;
+}
+
+.form label span {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 0.85rem;
+  pointer-events: none;
+  transition: 0.25s ease;
+  background: #1e293b;
+  padding: 0 6px;
+}
+
+.form .input:focus + span,
+.form .input:not(:placeholder-shown) + span {
+  top: -8px;
+  font-size: 0.7rem;
+  color: #6366f1;
+}
+
+.submit {
+  margin-top: 15px;
+  padding: 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(99, 102, 241, 0.4);
+}
+
+.signin {
+  margin-top: 20px;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.signin a {
+  color: #6366f1;
+  text-decoration: none;
+}
+
+/* ===== MEDIA QUERIES ===== */
+/* ===== AJUSTES DE RESPONSIVIDAD ADICIONALES ===== */
+/* ===== SOLUCIÓN ANTI-ESPAGUETI (340px a 550px) ===== */
+
+@media (max-width: 600px) {
+  /* 1. Liberamos la altura para que no se estire artificialmente */
+  body {
+    height: auto;
+    min-height: 100vh;
+    padding: 20px 0;
+    display: block; /* Cambiamos a block para evitar estiramientos de Flexbox */
+  }
+
+  /* 2. El contenedor ahora ocupa el ancho real del celular */
+  .form-section {
+    width: 92%; /* Dejamos un pequeño margen a los lados */
+    margin: 0 auto;
+    min-height: auto; /* Quitamos el cálculo que lo hace largo */
+    display: block;
+  }
+
+  /* 3. Evitamos que el vidrio (glass) sea demasiado alto */
+  .glass {
+    padding: 25px 20px;
+    margin-bottom: 30px;
+  }
+
+  /* 4. Ajuste del Hero para que no empuje todo hacia abajo */
+  .hero {
+    padding: 30px 15px;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+}
+
+/* Ajuste específico para pantallas muy pequeñas (iPhone SE, etc) */
+@media (max-width: 360px) {
+  .form .title {
+    font-size: 1.4rem;
+  }
+  
+  .form label span {
+    font-size: 0.75rem;
+  }
+}
+
+/* ===== PASSWORD TOGGLE BUTTON ===== */
+.password-field {
+  position: relative;
+}
+
+.toggle-pass {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #94a3b8;
+}
+
+.form-error {
+  color: #f87171;
+  font-size: 0.85rem;
+  margin-top: 10px;
+  min-height: 18px;
+}

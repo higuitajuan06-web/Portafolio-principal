@@ -1,0 +1,346 @@
+/* 1. Reset de márgenes y bordes para una página limpia */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 2. Estilo del cuerpo (Fondo oscuro y tipografía) */
+body {
+    /* Color de fondo oscuro basado en la imagen */
+    background-color: #1a2230; 
+    border: 1px solid #000000;
+    /* Fuente moderna y minimalista (Sans-serif) */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    
+    /* Color de texto principal (blanco suave) */
+    color: #ffffff;
+    
+    /* Suavizado de fuentes para que se vea más profesional */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+    font-size: large;
+}
+
+/* 3. Contenedor principal (La tarjeta de la interfaz) */
+/* Contenedor del Navbar */
+.navbar-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px 50px;
+    background: transparent; /* O puedes usar el color oscuro del body */
+}
+
+/* Estilo del Logo */
+.brand .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    color: #fff;
+}
+
+.brand .slogan {
+    font-size: 0.85rem;
+    color: #a0a0a0;
+    display: block;
+}
+
+/* Lista de Enlaces */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.95rem;
+    position: relative; /* Necesario para la línea */
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+/* La línea amarilla/naranja (Estado normal: oculta) */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #f39c12; /* Color naranja/amarillo de la imagen */
+    transition: width 0.3s ease;
+}
+
+/* Efecto al pasar el cursor y estado activo */
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #f39c12;
+}
+
+/* ======= MAIN PRINCIPAL ====== */
+/* Contenedor principal para centrar todo */
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+}
+
+/* El Grid de 3 columnas */
+.main-grid {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1100px;
+    flex-wrap: wrap; /* Para que sea responsivo */
+}
+
+/* Estilo de cada Tarjeta (Secciones) */
+.card-section {
+    flex: 1;
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.03); /* Fondo muy sutil */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde fino */
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: #a0a0a0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+/* Estilos de Proyectos */
+.project-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.img-placeholder img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Estilos de Skills */
+.skills-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.skills-list li {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 8px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+/* Estilos de About */
+.profile-img img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+    border: 2px solid #f39c12;
+}
+
+.about-text {
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Botón Resume llamativo */
+.btn-resume {
+    background: #f39c12;
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-resume:hover {
+    background: #e67e22;
+    transform: translateY(-2px);
+}
+
+/* Estilo general para cada item de la lista */
+.skill-item {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    /* La transición hace que el movimiento sea suave y no un salto brusco */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Tamaño controlado para las imágenes/iconos */
+.skill-item img {
+    width: 35px;
+    height: 35px;
+    margin-right: 15px;
+    transition: transform 0.3s ease;
+}
+
+/* Estilo del texto */
+.skill-item span {
+    font-weight: 600;
+    color: #333;
+}
+/* --- EFECTO HOVER (Cuando pasas el mouse) --- */
+.skill-item:hover {
+    /* Mueve todo el bloque 10px a la derecha */
+    transform: translateX(10px);
+    /* Añade un fondo ligero para resaltar el item */
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.skill-item:hover img {
+    /* Hace que el icono gire un poquito o se agrande al pasar el mouse */
+    transform: scale(1.2) rotate(5deg);
+    /* Le da un efecto de brillo al icono */
+    filter: brightness(1.2);
+}
+
+/* ======= imagen de about me ======= */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.profile-img {
+    /* 1. Tamaño más grande */
+    width: 200px;
+    height: 200px; /* Obligamos a que sea un cuadrado */
+    
+    /* 2. Círculo perfecto */
+    border-radius: 50%;
+    
+    /* 3. ¡ESTO ES LO MÁS IMPORTANTE! */
+    /* Evita que la foto se estire o se vea de mala calidad */
+    object-fit: cover; 
+    object-position: center; /* Centra la cara si la foto es muy alta */
+    
+    /* 4. Estética: Borde naranja de tu paleta */
+    border: 3px solid #f39c12;
+    padding: 5px; /* Espacio entre el borde y la foto */
+    background-color: rgba(243, 156, 18, 0.1);
+    
+    /* 5. Sombra para dar profundidad */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    
+    /* Mejora visual de renderizado */
+    image-rendering: auto; 
+}
+
+/* RESPONSI PARA TODO LOS DISPOSITIVO */
+/* --- RESPONSIVE DESIGN --- */
+
+/* Para pantallas menores a 768px (Tablets y Celulares) */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column; /* Apila logo arriba y links abajo */
+        padding: 20px;
+        text-align: center;
+    }
+
+    .brand {
+        margin-bottom: 20px; /* Separa el logo de los links */
+    }
+
+    .nav-links {
+        gap: 15px; /* Reduce el espacio entre links en el móvil */
+        padding: 0;
+        justify-content: center;
+        flex-wrap: wrap; /* Si son muchos links, saltan a la siguiente línea */
+    }
+
+    .nav-links a {
+        font-size: 0.85rem; /* Letra un poco más pequeña en móvil */
+    }
+}
+
+/* Estilos para el botón hamburguesa (Oculto en PC) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #f39c12; /* Tu color naranja */
+    transition: 0.3s;
+}
+
+/* --- NUEVO RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .navbar-container {
+        justify-content: space-between; /* Logo a la izquierda, botón a la derecha */
+        padding: 15px 30px;
+        position: relative;
+    }
+
+    .menu-toggle {
+        display: flex; /* Mostrar botón en móvil */
+    }
+
+    .nav-links {
+        display: none; /* Escondido por defecto */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Aparece justo debajo del navbar */
+        left: 0;
+        width: 100%;
+        background-color: #1a2230; /* El mismo fondo de tu body */
+        padding: 20px 0;
+        border-bottom: 2px solid #f39c12;
+        z-index: 1000;
+        gap: 20px;
+    }
+
+    /* Clase que activará JavaScript */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .brand .slogan {
+        display: none; /* Ocultamos el slogan para que no choque con el logo */
+    }
+}
